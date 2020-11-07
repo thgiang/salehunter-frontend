@@ -1,0 +1,8 @@
+:root {
+    --border-gray: #f2f3f8;
+    --header-height: 56px;
+    --shadow-color: #EEE;
+}
+.main-body {
+    padding-top: var(--header-height);
+}
