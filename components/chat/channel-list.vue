@@ -7,7 +7,8 @@
       :class="{'selected': channel.id === 2}"
     >
       <div class="channel__avatar pr-2">
-        <img :src="channel.avatar">
+        <!--<img :src="channel.avatar">-->
+        <name-to-avatar :name="channel.name" width="50px" height="50px" font-size="1.4em" />
       </div>
       <div class="channel__info">
         <div class="channel__name">
@@ -22,9 +23,10 @@
 </template>
 
 <script>
+import NameToAvatar from '../name-to-avatar'
 export default {
   name: 'ChannelList',
-
+  components: { NameToAvatar },
   mounted () {
     this.$store.dispatch('chat/getChannelList')
   }

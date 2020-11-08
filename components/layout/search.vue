@@ -1,7 +1,7 @@
 <template>
-    <div class="search">
-        <input class="search-input" placeholder="Tìm theo số điện thoại" />
-    </div>
+  <div class="search">
+    <input class="search-input" placeholder="Tìm theo số điện thoại">
+  </div>
 </template>
 
 <script>

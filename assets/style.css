@@ -3,14 +3,23 @@
     --header-height: 56px;
     --shadow-color: #EEE;
     --background-gray: #f2f2f2;
+    --background-bold-gray: #d8dadf;
+    --background-color: #FFF;
     --text-gray: #999999;
     --sidebar-max-width: 420px;
     --sidebar-min-width: 350px;
     --blue-color: #0099ff;
+    --nearly-black: #050505;
+    --shadow-1: rgba(0, 0, 0, 0.1);
+    --shadow-2: rgba(0, 0, 0, 0.2);
+    --shadow-inset: rgba(255, 255, 255, 0.5);
 }
 body {
     font-size: 16px;
     font-family: Segoe UI, Helvetica, Arial, sans-serif;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 .main-body {
     padding-top: var(--header-height);
@@ -19,6 +28,13 @@ body {
     color: var(--text-gray);
 }
 
+/* Global class */
+.dropdown-content {
+    background: var(--background-color);
+    box-shadow:  0 12px 28px 0 var(--shadow-2),0 2px 4px 0 var(--shadow-1),inset 0 0 0 1px var(--shadow-inset);
+    border-radius: 8px;
+    padding: 0.5rem;
+}
 
 /* width */
 ::-webkit-scrollbar {

@@ -46,6 +46,7 @@ export default {
     display: flex;
     flex-direction: column;
     .chat__channel-info {
+      height: var(--header-height);
       display: flex;
       box-shadow: 0 3px 2px -2px var(--border-gray);
     }
@@ -57,6 +58,8 @@ export default {
         border-right: 1px solid var(--border-gray)
       }
       .chat__action {
+        height: calc(100vh - var(--header-height) - var(--header-height));
+        overflow-y: auto;
         flex: 0 1 25%;
         max-width: var(--sidebar-max-width);
         min-width: var(--sidebar-min-width);

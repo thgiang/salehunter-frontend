@@ -7,12 +7,13 @@
         </nuxt-link>
       </div>
       <div class="search pt-2 pr-2">
-        <search />
+        <search v-if="this.$auth.loggedIn" />
       </div>
     </div>
     <div class="header-right">
-        <user-info />
+      <user-info v-if="this.$auth.loggedIn" />
     </div>
+    <div style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAOBAMAAAD3WtBsAAAAFVBMVEUAAAAAAAAAAAAAAAAAAAAAAAD29va1cB7UAAAAB3RSTlMCCwQHGBAaZf6MKAAAABpJREFUCNdjSGNIY3BhCGUQBEJjIFQCQigAACyJAjLNW4w5AAAAAElFTkSuQmCC)" />
   </div>
 </template>
 
@@ -23,7 +24,26 @@ import Search from '@/components/layout/search'
 
 export default {
   name: 'Header',
-  components: { UserInfo, Logo, Search }
+  components: { UserInfo, Logo, Search },
+  computed: {
+    loggedIn () {
+      return this.$auth.loggedIn
+    }
+  },
+  watch: {
+    loggedIn () {
+      this.$forceUpdate()
+    }
+  },
+  methods: {
+    logout () {
+      if (this.$auth.loggedIn) {
+        this.$auth.logout().then((r) => {
+          window.location.reload()
+        })
+      }
+    }
+  }
 }
 </script>
 
@@ -36,7 +56,7 @@ export default {
         height: var(--header-height);
         background: #FFF;
         z-index: 10;
-      box-shadow: 0 4px 2px -2px var(--border-gray);
+        box-shadow: 0 4px 2px -2px var(--border-gray);
         display: flex;
     }
     .header-left {

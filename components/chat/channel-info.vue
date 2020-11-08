@@ -14,13 +14,13 @@
 
     <div class="channel-info__buttons pl-2 pr-3">
       <div class="channel-info__button selected text-center mr-3">
-        <i class="fa fa-info-circle" style="font-size: 1.1rem" />
+        <i class="far fa-file-alt" />
         <span class="channel-info__button-text">
           Thông tin
         </span>
       </div>
       <div class="channel-info__button text-center mr-3">
-        <i class="fa fa-heart" />
+        <i class="fas fa-shipping-fast" />
         <span class="channel-info__button-text">
           Chốt đơn
         </span>

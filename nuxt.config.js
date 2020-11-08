@@ -1,7 +1,9 @@
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
-
+  router: {
+    middleware: ['auth']
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'SaleHunter',
@@ -38,7 +40,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '@/plugins/antd-ui',
+    '@/plugins/antd-ui'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -53,12 +55,28 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/auth-next'
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
+  auth: {
+    strategies: {
+      laravelJWT: {
+        provider: 'laravel/jwt',
+        url: 'http://localhost:8000',
+        token: {
+          property: 'access_token',
+          maxAge: 7 * 24 * 60 * 60
+        },
+        refreshToken: {
+          maxAge: 7 * 24 * 60 * 60
+        }
+      }
+    }
+  },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {}
 }

@@ -1,21 +1,77 @@
 <template>
   <div class="user-info pr-3">
     <div class="user-info__name">
-      <img
-        src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/cp0/p50x50/99157762_3049046531881409_242934006075621376_o.jpg?_nc_cat=106&ccb=2&_nc_sid=7206a8&_nc_ohc=uxnTEsqZ6M8AX_4nA_W&_nc_ht=scontent.fhan2-1.fna&tp=27&oh=0e79969ad24c4016594aec77a37ceeb7&oe=5FCD72D1"
-      >
+      <div class="d-inline-block">
+        <name-to-avatar name="Trần Anh Vũ" width="28px" height="28px" />
+      </div>
       <strong>Bố Gấu</strong>
+    </div>
+
+    <div class="user-info__buttons">
+      <div class="user-info__button mx-1 user-info__setting">
+        <a-dropdown :trigger="['click']" placement="bottomRight">
+          <a class="ant-dropdown-link" @click="e => e.preventDefault()">
+            <icon-with-border
+              width="40px"
+              height="40px"
+              background="var(--background-bold-gray)"
+              color="var(--nearly-black)"
+              icon="fa fa-caret-down"
+              font-size="1.3rem"
+            />
+
+          </a>
+          <div slot="overlay" class="dropdown-content">
+            <div class="user-info__menu-item" @click="logout()">
+              <icon-with-border
+                width="30px"
+                height="30px"
+                background="var(--background-bold-gray)"
+                color="var(--nearly-black)"
+                icon="fa fa-sign-out-alt"
+                font-size="1rem"
+                class="mr-2"
+              />
+              <strong>Đăng xuất</strong>
+            </div>
+          </div>
+        </a-dropdown>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import IconWithBorder from '../icon-with-border'
+import NameToAvatar from '../name-to-avatar'
 export default {
-  name: 'UserInfo'
+  name: 'UserInfo',
+  components: { NameToAvatar, IconWithBorder },
+  methods: {
+    logout () {
+      if (this.$auth.loggedIn) {
+        this.$auth.logout().then((r) => {
+          window.location.reload()
+        })
+      }
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
+  .user-info__menu-item {
+    display: flex;
+    align-items: center;
+    min-width: 120px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .user-info__menu-item:hover {
+    background: var(--background-gray);
+  }
+
   .user-info {
     justify-content: flex-end;
     display: flex;
@@ -29,6 +85,10 @@ export default {
         height: 28px;
       }
     }
-
+    .user-info__buttons {
+      .user-info__button a {
+        color: var(--nearly-black)
+      }
+    }
   }
 </style>
