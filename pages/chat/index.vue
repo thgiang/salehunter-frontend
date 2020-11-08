@@ -1,41 +1,66 @@
 <template>
   <div class="chat">
-    <div class="chat__channel-list p-2">
-      channel list
+    <div class="chat__left p-2 pl-3">
+      <channel-list />
     </div>
-    <div class="chat__body">
-      <div class="chat__content p-2">
-        Content
-      </div>
-      <div class="chat__action p-2">
-        Action
+    <div class="chat__right">
+      <channel-info class="chat__channel-info" />
+      <div class="chat__main">
+        <div class="chat__content">
+          <channel-content />
+        </div>
+        <div class="chat__action">
+          <channel-action />
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import ChannelList from '~/components/chat/channel-list'
+import ChannelInfo from '~/components/chat/channel-info'
+import ChannelContent from '~/components/chat/channel-content'
+import ChannelAction from '~/components/chat/channel-action'
 export default {
+  components: { ChannelAction, ChannelContent, ChannelInfo, ChannelList }
 }
-
 </script>
 <style lang="scss" scoped>
 .chat {
-  height: calc(100vh - var(--header-height));
+  height: 100vh;
+  overflow: hidden;
   background: #FFF;
   display: flex;
-  .chat__channel-list {
-    flex: 0 1 420px;
+  .chat__left:hover {
+    overflow-y: auto;
+  }
+  .chat__left {
+    overflow: hidden;
+    flex: 0 1 25%;
+    max-width: var(--sidebar-max-width);
+    min-width: var(--sidebar-min-width);
     border-right: 1px solid var(--border-gray)
   }
-  .chat__body {
+  .chat__right {
     flex: auto;
     display: flex;
-    .chat__content {
-      flex: auto;
-      border-right: 1px solid var(--border-gray)
+    flex-direction: column;
+    .chat__channel-info {
+      display: flex;
+      box-shadow: 0 3px 2px -2px var(--border-gray);
     }
-    .chat__action {
-      flex: 0 1 300px;
+    .chat__main {
+      display: flex;
+      flex-grow: 1;
+      .chat__content {
+        flex: auto;
+        border-right: 1px solid var(--border-gray)
+      }
+      .chat__action {
+        flex: 0 1 25%;
+        max-width: var(--sidebar-max-width);
+        min-width: var(--sidebar-min-width);
+      }
     }
   }
 }

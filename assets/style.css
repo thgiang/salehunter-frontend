@@ -1,8 +1,41 @@
 :root {
-    --border-gray: #f2f3f8;
+    --border-gray: #e5e5e5;
     --header-height: 56px;
     --shadow-color: #EEE;
+    --background-gray: #f2f2f2;
+    --text-gray: #999999;
+    --sidebar-max-width: 420px;
+    --sidebar-min-width: 350px;
+    --blue-color: #0099ff;
+}
+body {
+    font-size: 16px;
+    font-family: Segoe UI, Helvetica, Arial, sans-serif;
 }
 .main-body {
     padding-top: var(--header-height);
+}
+.text-gray {
+    color: var(--text-gray);
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
