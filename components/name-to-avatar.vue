@@ -40,8 +40,8 @@ export default {
     }
   },
   mounted () {
-    // const bgColors = ['#1abc9c', '#e74c3c', '#c0392b', '#2c3e50', '#d35400', '#8e44ad']
-    const bgColors = ['#909090']
+    const bgColors = ['#1abc9c', '#e74c3c', '#c0392b', '#2c3e50', '#d35400', '#8e44ad']
+    // const bgColors = ['#909090']
     const strings = this.name.split(' ').reverse()
     let av = ''
     for (let i = 0; i < Math.min(strings.length, 2); i++) {
