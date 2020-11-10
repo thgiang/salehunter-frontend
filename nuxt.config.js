@@ -1,4 +1,9 @@
 export default {
+  env: {
+    FB_APP_ID: process.env.FB_APP_ID || '374867146889272',
+    FB_SECRET: process.env.FB_SECRET || '67d27515cb95019d99f4a30ce0ccdccf',
+    FB_VERSION: process.env.FB_VERSION || 'v8.0'
+  },
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
   router: {
