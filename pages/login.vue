@@ -58,7 +58,7 @@
 <script>
 export default {
   auth: false,
-  middleware: ['isLoggedIn'],
+  // middleware: ['isLoggedIn'],
   data () {
     return {
       notice: '',

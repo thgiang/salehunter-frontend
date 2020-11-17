@@ -1,4 +1,5 @@
 export default {
+  buildDir: 'C:\\xampp\\htdocs\\salehunter.net',
   env: {
     FB_APP_ID: process.env.FB_APP_ID || '374867146889272',
     FB_SECRET: process.env.FB_SECRET || '67d27515cb95019d99f4a30ce0ccdccf',
@@ -7,7 +8,7 @@ export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
   router: {
-    middleware: ['auth']
+    // middleware: ['auth']
   },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -83,11 +84,14 @@ export default {
           maxAge: 7 * 24 * 60 * 60
         },
         refreshToken: {
-          maxAge: 7 * 24 * 60 * 60
+          maxAge: 7 * 24 * 60 * 90
         }
       }
     }
   },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {}
+  build: {
+
+  }
+
 }
