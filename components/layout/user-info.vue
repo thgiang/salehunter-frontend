@@ -2,40 +2,37 @@
   <div class="user-info pr-3">
     <div class="user-info__name">
       <div class="d-inline-block">
-        <name-to-avatar name="Trần Anh Vũ" width="28px" height="28px" />
+        <name-to-avatar :name="$auth.user.name" width="28px" height="28px" />
       </div>
-      <strong>Bố Gấu</strong>
+      <strong>{{ $auth.user.name }}</strong>
     </div>
 
     <div class="user-info__buttons">
       <div class="user-info__button mx-1 user-info__setting">
-        <a-dropdown :trigger="['click']" placement="bottomRight">
-          <a class="ant-dropdown-link" @click="e => e.preventDefault()">
+        <div class="cursor-pointer" @click="() => { showUserMenu = !showUserMenu}">
+          <icon-with-border
+            width="40px"
+            height="40px"
+            background="var(--background-bold-gray)"
+            color="var(--nearly-black)"
+            icon="fa fa-caret-down"
+            font-size="1.3rem"
+          />
+        </div>
+        <div v-show="showUserMenu" class="dropdown-content">
+          <div class="user-info__menu-item" @click="logout()">
             <icon-with-border
-              width="40px"
-              height="40px"
+              width="30px"
+              height="30px"
               background="var(--background-bold-gray)"
               color="var(--nearly-black)"
-              icon="fa fa-caret-down"
-              font-size="1.3rem"
+              icon="fa fa-sign-out-alt"
+              font-size="1rem"
+              class="mr-2"
             />
-
-          </a>
-          <div slot="overlay" class="dropdown-content">
-            <div class="user-info__menu-item" @click="logout()">
-              <icon-with-border
-                width="30px"
-                height="30px"
-                background="var(--background-bold-gray)"
-                color="var(--nearly-black)"
-                icon="fa fa-sign-out-alt"
-                font-size="1rem"
-                class="mr-2"
-              />
-              <strong>Đăng xuất</strong>
-            </div>
+            <strong>Đăng xuất</strong>
           </div>
-        </a-dropdown>
+        </div>
       </div>
     </div>
   </div>
@@ -47,6 +44,11 @@ import NameToAvatar from '../name-to-avatar'
 export default {
   name: 'UserInfo',
   components: { NameToAvatar, IconWithBorder },
+  data () {
+    return {
+      showUserMenu: false
+    }
+  },
   methods: {
     logout () {
       if (this.$auth.loggedIn) {
@@ -60,6 +62,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.user-info__button {
+  position: relative;
+}
+.dropdown-content {
+  position: absolute;
+  right: 0;
+  width: 200px;
+  margin-top: 5px;
+}
   .user-info__menu-item {
     display: flex;
     align-items: center;

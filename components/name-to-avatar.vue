@@ -1,6 +1,6 @@
 <template>
   <div class="text-avatar" :style="style">
-    {{ this.displayText }}
+    {{ displayText }}
   </div>
 </template>
 <script>
@@ -21,7 +21,7 @@ export default {
     },
     fontSize: {
       type: String,
-      default: '1rem'
+      default: '0.8rem'
     },
     customStyle: {
       type: String,

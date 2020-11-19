@@ -25,16 +25,18 @@
                 id="email"
                 v-model="email"
                 type="email"
+                name="email"
                 class="form-control"
                 placeholder="Your email"
                 @keyup.enter="login"
               >
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Mật khẩu</label>
+              <label for="password">Mật khẩu</label>
               <input
-                id="exampleInputPassword1"
+                id="password"
                 v-model="password"
+                name="password"
                 type="password"
                 class="form-control"
                 placeholder="Password"
@@ -58,7 +60,7 @@
 <script>
 export default {
   auth: false,
-  // middleware: ['isLoggedIn'],
+  middleware: ['isLoggedIn'],
   data () {
     return {
       notice: '',
@@ -75,8 +77,10 @@ export default {
           email: this.email,
           password: this.password
         }
-      }).then(function () {
+      }).then(function (response) {
+        console.log(response)
         if (that.$auth.loggedIn) {
+          that.$axios.setHeader('Authorization', response.access_token)
           window.location.reload()
         } else {
           that.$refs.login.textContent = 'Đăng nhập'
