@@ -4,12 +4,12 @@ export default {
     FB_APP_ID: process.env.FB_APP_ID || '374867146889272',
     FB_SECRET: process.env.FB_SECRET || '67d27515cb95019d99f4a30ce0ccdccf',
     FB_VERSION: process.env.FB_VERSION || 'v8.0',
-    API_URL: process.env.API_URL || 'http://localhost:8000/api/'
+    BASE_URL: process.env.BASE_URL || 'https://api.salehunter.net'
   },
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
   router: {
-    // middleware: ['auth']
+    middleware: ['auth']
   },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -71,20 +71,34 @@ export default {
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: 'https://api.salehunter.net' // Used as fallback if no runtime config is provided
+  },
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL
+    }
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL
+    }
+  },
 
   auth: {
     strategies: {
-      laravelJWT: {
-        provider: 'laravel/jwt',
-        url: 'http://localhost:8000',
-        token: {
-          property: 'access_token',
-          maxAge: 24 * 60 * 60
+      local: {
+        endpoints: {
+          login: { url: '/users/login', method: 'post', propertyName: 'token' },
+          logout: { url: '/users/logout', method: 'post' },
+          user: { url: '/users/me', method: 'get', propertyName: 'user' }
         },
-        refreshToken: {
-          maxAge: 20160 * 60
-        }
+        tokenRequired: true,
+        tokenType: false,
+        globalToken: true,
+        autoFetchUser: true
       }
     }
   },

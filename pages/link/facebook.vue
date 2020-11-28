@@ -17,19 +17,19 @@
                     Danh sách Fanpage đã kết nối
                   </h3>
                 </div>
-                <div v-for="(page, pageCount) in pages" :key="page.id" class="col-md-4 mb-2">
+                <div v-for="(page, pageCount) in pages" :key="page.fb_page_id" class="col-md-4 mb-2">
                   <div v-if="pageCount < 15" class="fanpage-card card">
                     <div class="card-body p-2">
                       <div class="d-flex">
                         <div class="fanpage-card__avatar mr-2">
-                          <img :src="'https://graph.facebook.com/'+page.id+'/picture'">
+                          <img :src="'https://graph.facebook.com/'+page.fb_page_id+'/picture'">
                         </div>
                         <div class="d-flex flex-column fanpage-card__info">
-                          <div :title="page.name" class="fanpage-card__name">
-                            {{ page.name }}
+                          <div :title="page.fb_page_name" class="fanpage-card__name">
+                            {{ page.fb_page_name }}
                           </div>
                           <small class="fanpage-card__description">
-                            {{ page.category }}
+                            {{ page.updated_at }}
                           </small>
                         </div>
                       </div>
@@ -72,16 +72,23 @@ export default {
   },
 
   mounted () {
+    this.getPages()
   },
 
   methods: {
+    async getPages () {
+      const response = await this.$axios.get('get-pages')
+      if (response && response.data.success) {
+        this.pages = response.data.data
+      }
+    },
     login () {
       window.FB.login(async (response) => {
         if (response.authResponse) {
           const accessToken = window.FB.getAuthResponse().accessToken
 
           this.isLoading = true
-          const response = await this.$axios.get(process.env.API_URL + 'add-pages', {
+          const response = await this.$axios.get('add-pages', {
             params: {
               access_token: accessToken
             }

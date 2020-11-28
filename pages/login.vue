@@ -18,7 +18,7 @@
           </p>
         </div>
         <div class="col-sm-5">
-          <form class="login-form p-4 bg-white text-dark">
+          <form class="login-form p-4 bg-white text-dark" @submit="login">
             <div class="form-group">
               <label for="email">Địa chỉ email</label>
               <input
@@ -43,7 +43,7 @@
                 @keyup.enter="login"
               >
             </div>
-            <button ref="login" type="button" class="btn btn-success col-12 mb-2" @click="login()">
+            <button ref="login" type="submit" class="btn btn-success col-12 mb-2">
               Login
             </button>
             <span class="text-danger">{{ notice }}</span>
@@ -59,8 +59,7 @@
 </template>
 <script>
 export default {
-  auth: false,
-  middleware: ['isLoggedIn'],
+  auth: 'guest',
   data () {
     return {
       notice: '',
@@ -69,27 +68,15 @@ export default {
     }
   },
   methods: {
-    login () {
+    async login (evt) {
+      evt.preventDefault()
       this.$refs.login.textContent = 'Đang đăng nhập'
-      const that = this
-      this.$auth.loginWith('laravelJWT', {
-        data: {
-          email: this.email,
-          password: this.password
-        }
-      }).then(function (response) {
+      try {
+        const response = await this.$auth.loginWith('local', { data: { email: this.email, password: this.password } })
         console.log(response)
-        if (that.$auth.loggedIn) {
-          that.$axios.setHeader('Authorization', response.access_token)
-          window.location.reload()
-        } else {
-          that.$refs.login.textContent = 'Đăng nhập'
-          that.notice = 'Đăng nhập không thành công'
-        }
-      }).catch(function () {
-        that.$refs.login.textContent = 'Đăng nhập'
-        that.notice = 'Đăng nhập không thành công.'
-      })
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 }
