@@ -72,10 +72,10 @@ export default {
       evt.preventDefault()
       this.$refs.login.textContent = 'Đang đăng nhập'
       try {
-        const response = await this.$auth.loginWith('local', { data: { email: this.email, password: this.password } })
-        console.log(response)
+        await this.$auth.loginWith('local', { data: { email: this.email, password: this.password } })
+        this.router.push('/')
       } catch (err) {
-        console.log(err)
+        this.notice = 'Có lỗi xảy ra ' + err.toString()
       }
     }
   }

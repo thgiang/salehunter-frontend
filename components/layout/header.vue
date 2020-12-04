@@ -1,30 +1,67 @@
 <template>
-  <div class="header">
-    <div class="header-left">
-      <div class="logo p-2 pl-3">
-        <nuxt-link to="/chat">
-          <Logo />
-        </nuxt-link>
-      </div>
-      <div class="search pt-2 pr-2">
-        <search v-if="this.$auth.loggedIn" />
-      </div>
-    </div>
-    <div class="header-right">
-      <user-info v-if="this.$auth.loggedIn" />
-    </div>
-    <div style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAOBAMAAAD3WtBsAAAAFVBMVEUAAAAAAAAAAAAAAAAAAAAAAAD29va1cB7UAAAAB3RSTlMCCwQHGBAaZf6MKAAAABpJREFUCNdjSGNIY3BhCGUQBEJjIFQCQigAACyJAjLNW4w5AAAAAElFTkSuQmCC)" />
+  <div class="header px-md-2 pl-3 my-auto">
+    <b-navbar toggleable="lg" type="light" variant="white" class="p-0">
+      <b-navbar-brand href="#">
+        <Logo />
+      </b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse" />
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item :to="'/'">
+            Home
+          </b-nav-item>
+          <b-nav-item :to="'/link/facebook'">
+            Link Facebook
+          </b-nav-item>
+        </b-navbar-nav>
+
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <search />
+
+          <!--
+          <b-nav-item-dropdown text="Lang" right>
+            <b-dropdown-item href="#">
+              EN
+            </b-dropdown-item>
+            <b-dropdown-item href="#">
+              ES
+            </b-dropdown-item>
+            <b-dropdown-item href="#">
+              RU
+            </b-dropdown-item>
+            <b-dropdown-item href="#">
+              FA
+            </b-dropdown-item>
+          </b-nav-item-dropdown>
+-->
+          <b-nav-item-dropdown v-if="loggedIn" right>
+            <!-- Using 'button-content' slot -->
+            <template #button-content>
+              {{ $auth.user.name }}
+            </template>
+            <b-dropdown-item href="#">
+              Profile
+            </b-dropdown-item>
+            <b-dropdown-item @click="logout">
+              Đăng xuất
+            </b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
 </template>
 
 <script>
-import UserInfo from '@/components/layout/user-info'
 import Logo from '@/components/svg/logo'
 import Search from '@/components/layout/search'
 
 export default {
   name: 'Header',
-  components: { UserInfo, Logo, Search },
+  components: { Logo, Search },
   computed: {
     loggedIn () {
       return this.$auth.loggedIn
@@ -56,27 +93,6 @@ export default {
         height: var(--header-height);
         background: #FFF;
         z-index: 10;
-        box-shadow: 0 4px 2px -2px var(--border-gray);
-        display: flex;
-    }
-    .header-left {
-      flex: 0 0 25%;
-      max-width: 420px;
-      min-width: 350px;
-      display: flex;
-      .logo {
-        flex: 0 0 72px;
-      }
-      .search {
-        flex: auto;
-      }
-    }
-    .header-right {
-      flex: auto;
-    }
-    .logo {
-        img {
-            height: 100%;
-        }
+        border-bottom: 1px solid var(--border-gray);
     }
 </style>

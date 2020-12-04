@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="card shadow mt-3">
+    <div class="card shadow my-3">
       <div class="card-body p-4">
         <div v-if="isLoading">
           Đang liên kết với Facebook...
@@ -14,22 +14,22 @@
               <div class="row">
                 <div class="col-md-12">
                   <h3 class="mt-0 pt-0 pb-2">
-                    Danh sách Fanpage đã kết nối
+                    Danh sách Fanpage đã kết nốih
                   </h3>
                 </div>
-                <div v-for="(page, pageCount) in pages" :key="page.fb_page_id" class="col-md-4 mb-2">
-                  <div v-if="pageCount < 15" class="fanpage-card card">
+                <div v-for="(page) in pages" :key="page.fbPageId" class="col-md-4 mb-2">
+                  <div class="fanpage-card card">
                     <div class="card-body p-2">
                       <div class="d-flex">
                         <div class="fanpage-card__avatar mr-2">
-                          <img :src="'https://graph.facebook.com/'+page.fb_page_id+'/picture'">
+                          <img :src="'https://graph.facebook.com/'+page.fbPageId+'/picture'">
                         </div>
                         <div class="d-flex flex-column fanpage-card__info">
                           <div :title="page.fb_page_name" class="fanpage-card__name">
-                            {{ page.fb_page_name }}
+                            {{ page.fbPageName }}
                           </div>
                           <small class="fanpage-card__description">
-                            {{ page.updated_at }}
+                            {{ page.updatedAt }}
                           </small>
                         </div>
                       </div>
@@ -77,7 +77,7 @@ export default {
 
   methods: {
     async getPages () {
-      const response = await this.$axios.get('get-pages')
+      const response = await this.$axios.get('pages')
       if (response && response.data.success) {
         this.pages = response.data.data
       }
@@ -88,7 +88,7 @@ export default {
           const accessToken = window.FB.getAuthResponse().accessToken
 
           this.isLoading = true
-          const response = await this.$axios.get('add-pages', {
+          const response = await this.$axios.get('pages/add', {
             params: {
               access_token: accessToken
             }

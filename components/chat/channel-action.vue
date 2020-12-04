@@ -12,96 +12,89 @@
     </div>
 
     <div>
-      <a-tabs default-active-key="1">
-        <a-tab-pane key="1" tab="ĐH hoàn thành">
-          <div class="px-2">
-            <div data-v-3f30b336="" class="other-order-detail" style="position: relative;">
-              <span data-v-3f30b336="" class="font-weight-bold">S13973089.HN3.B4C.548864980</span><br data-v-3f30b336="">
-              <span data-v-3f30b336="">Trần Hoàng Giang / 096***6294</span><br data-v-3f30b336=""> <span data-v-3f30b336="">Số 51***à Nội Láng, Quận Đống Đa, Hà Nội</span><br
-                data-v-3f30b336=""
-              > <span data-v-3f30b336="">Thu hộ: <span
-                data-v-3f30b336=""
-                class="font-weight-bold"
-              >22.000đ</span> | Phí ship: <span
-                data-v-3f30b336=""
-                class="font-weight-bold"
-              >22.000đ</span></span><br data-v-3f30b336=""> <span
-                data-v-3f30b336=""
-                class="package-status"
-              >Đã tiếp nhận</span>
-            </div>
-            <hr>
-            <div data-v-3f30b336="" class="other-order-detail" style="position: relative;">
-              <span data-v-3f30b336="" class="font-weight-bold">S13973089.HN3.B4C.548864980</span><br data-v-3f30b336="">
-              <span data-v-3f30b336="">Trần Hoàng Giang / 096***6294</span><br data-v-3f30b336=""> <span data-v-3f30b336="">Số 51***à Nội Láng, Quận Đống Đa, Hà Nội</span><br
-                data-v-3f30b336=""
-              > <span data-v-3f30b336="">Thu hộ: <span
-                data-v-3f30b336=""
-                class="font-weight-bold"
-              >22.000đ</span> | Phí ship: <span
-                data-v-3f30b336=""
-                class="font-weight-bold"
-              >22.000đ</span></span><br data-v-3f30b336=""> <span
-                data-v-3f30b336=""
-                class="package-status"
-              >Đã tiếp nhận</span>
-            </div>
-            <hr>
-            <div data-v-3f30b336="" class="other-order-detail" style="position: relative;">
-              <span data-v-3f30b336="" class="font-weight-bold">S13973089.HN3.B4C.548864980</span><br data-v-3f30b336="">
-              <span data-v-3f30b336="">Trần Hoàng Giang / 096***6294</span><br data-v-3f30b336=""> <span data-v-3f30b336="">Số 51***à Nội Láng, Quận Đống Đa, Hà Nội</span><br
-                data-v-3f30b336=""
-              > <span data-v-3f30b336="">Thu hộ: <span
-                data-v-3f30b336=""
-                class="font-weight-bold"
-              >22.000đ</span> | Phí ship: <span
-                data-v-3f30b336=""
-                class="font-weight-bold"
-              >22.000đ</span></span><br data-v-3f30b336=""> <span
-                data-v-3f30b336=""
-                class="package-status"
-              >Đã tiếp nhận</span>
-            </div>
+      <div class="px-2">
+        <div data-v-3f30b336="" class="other-order-detail" style="position: relative;">
+          <span data-v-3f30b336="" class="font-weight-bold">S13973089.HN3.B4C.548864980</span><br data-v-3f30b336="">
+          <span data-v-3f30b336="">Trần Hoàng Giang / 096***6294</span><br data-v-3f30b336=""> <span data-v-3f30b336="">Số 51***à Nội Láng, Quận Đống Đa, Hà Nội</span><br
+            data-v-3f30b336=""
+          > <span data-v-3f30b336="">Thu hộ: <span
+            data-v-3f30b336=""
+            class="font-weight-bold"
+          >22.000đ</span> | Phí ship: <span
+            data-v-3f30b336=""
+            class="font-weight-bold"
+          >22.000đ</span></span><br data-v-3f30b336=""> <span
+            data-v-3f30b336=""
+            class="package-status"
+          >Đã tiếp nhận</span>
+        </div>
+        <hr>
+        <div data-v-3f30b336="" class="other-order-detail" style="position: relative;">
+          <span data-v-3f30b336="" class="font-weight-bold">S13973089.HN3.B4C.548864980</span><br data-v-3f30b336="">
+          <span data-v-3f30b336="">Trần Hoàng Giang / 096***6294</span><br data-v-3f30b336=""> <span data-v-3f30b336="">Số 51***à Nội Láng, Quận Đống Đa, Hà Nội</span><br
+            data-v-3f30b336=""
+          > <span data-v-3f30b336="">Thu hộ: <span
+            data-v-3f30b336=""
+            class="font-weight-bold"
+          >22.000đ</span> | Phí ship: <span
+            data-v-3f30b336=""
+            class="font-weight-bold"
+          >22.000đ</span></span><br data-v-3f30b336=""> <span
+            data-v-3f30b336=""
+            class="package-status"
+          >Đã tiếp nhận</span>
+        </div>
+        <hr>
+        <div data-v-3f30b336="" class="other-order-detail" style="position: relative;">
+          <span data-v-3f30b336="" class="font-weight-bold">S13973089.HN3.B4C.548864980</span><br data-v-3f30b336="">
+          <span data-v-3f30b336="">Trần Hoàng Giang / 096***6294</span><br data-v-3f30b336=""> <span data-v-3f30b336="">Số 51***à Nội Láng, Quận Đống Đa, Hà Nội</span><br
+            data-v-3f30b336=""
+          > <span data-v-3f30b336="">Thu hộ: <span
+            data-v-3f30b336=""
+            class="font-weight-bold"
+          >22.000đ</span> | Phí ship: <span
+            data-v-3f30b336=""
+            class="font-weight-bold"
+          >22.000đ</span></span><br data-v-3f30b336=""> <span
+            data-v-3f30b336=""
+            class="package-status"
+          >Đã tiếp nhận</span>
+        </div>
 
-            <hr>
-            <div data-v-3f30b336="" class="other-order-detail" style="position: relative;">
-              <span data-v-3f30b336="" class="font-weight-bold">S13973089.HN3.B4C.548864980</span><br data-v-3f30b336="">
-              <span data-v-3f30b336="">Trần Hoàng Giang / 096***6294</span><br data-v-3f30b336=""> <span data-v-3f30b336="">Số 51***à Nội Láng, Quận Đống Đa, Hà Nội</span><br
-                data-v-3f30b336=""
-              > <span data-v-3f30b336="">Thu hộ: <span
-                data-v-3f30b336=""
-                class="font-weight-bold"
-              >22.000đ</span> | Phí ship: <span
-                data-v-3f30b336=""
-                class="font-weight-bold"
-              >22.000đ</span></span><br data-v-3f30b336=""> <span
-                data-v-3f30b336=""
-                class="package-status"
-              >Đã tiếp nhận</span>
-            </div>
+        <hr>
+        <div data-v-3f30b336="" class="other-order-detail" style="position: relative;">
+          <span data-v-3f30b336="" class="font-weight-bold">S13973089.HN3.B4C.548864980</span><br data-v-3f30b336="">
+          <span data-v-3f30b336="">Trần Hoàng Giang / 096***6294</span><br data-v-3f30b336=""> <span data-v-3f30b336="">Số 51***à Nội Láng, Quận Đống Đa, Hà Nội</span><br
+            data-v-3f30b336=""
+          > <span data-v-3f30b336="">Thu hộ: <span
+            data-v-3f30b336=""
+            class="font-weight-bold"
+          >22.000đ</span> | Phí ship: <span
+            data-v-3f30b336=""
+            class="font-weight-bold"
+          >22.000đ</span></span><br data-v-3f30b336=""> <span
+            data-v-3f30b336=""
+            class="package-status"
+          >Đã tiếp nhận</span>
+        </div>
 
-            <hr>
-            <div data-v-3f30b336="" class="other-order-detail" style="position: relative;">
-              <span data-v-3f30b336="" class="font-weight-bold">S13973089.HN3.B4C.548864980</span><br data-v-3f30b336="">
-              <span data-v-3f30b336="">Trần Hoàng Giang / 096***6294</span><br data-v-3f30b336=""> <span data-v-3f30b336="">Số 51***à Nội Láng, Quận Đống Đa, Hà Nội</span><br
-                data-v-3f30b336=""
-            > <span data-v-3f30b336="">Thu hộ: <span
-                data-v-3f30b336=""
-                class="font-weight-bold"
-            >22.000đ</span> | Phí ship: <span
-                data-v-3f30b336=""
-                class="font-weight-bold"
-            >22.000đ</span></span><br data-v-3f30b336=""> <span
-                data-v-3f30b336=""
-                class="package-status"
-            >Đã tiếp nhận</span>
-            </div>
-          </div>
-        </a-tab-pane>
-        <a-tab-pane key="2" tab="ĐH đang giao" force-render style="width: 50%">
-          Content of Tab Pane 2
-        </a-tab-pane>
-      </a-tabs>
+        <hr>
+        <div data-v-3f30b336="" class="other-order-detail" style="position: relative;">
+          <span data-v-3f30b336="" class="font-weight-bold">S13973089.HN3.B4C.548864980</span><br data-v-3f30b336="">
+          <span data-v-3f30b336="">Trần Hoàng Giang / 096***6294</span><br data-v-3f30b336=""> <span data-v-3f30b336="">Số 51***à Nội Láng, Quận Đống Đa, Hà Nội</span><br
+            data-v-3f30b336=""
+          > <span data-v-3f30b336="">Thu hộ: <span
+            data-v-3f30b336=""
+            class="font-weight-bold"
+          >22.000đ</span> | Phí ship: <span
+            data-v-3f30b336=""
+            class="font-weight-bold"
+          >22.000đ</span></span><br data-v-3f30b336=""> <span
+            data-v-3f30b336=""
+            class="package-status"
+          >Đã tiếp nhận</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
