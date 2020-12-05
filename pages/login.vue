@@ -71,11 +71,14 @@ export default {
     async login (evt) {
       evt.preventDefault()
       this.$refs.login.textContent = 'Đang đăng nhập'
+      const that = this
       try {
         await this.$auth.loginWith('local', { data: { email: this.email, password: this.password } })
         this.router.push('/')
       } catch (err) {
-        this.notice = 'Có lỗi xảy ra ' + err.toString()
+        that.$refs.login.textContent = 'Đăng nhập'
+        that.notice = 'Vui lòng kiểm tra lại thông tin đăng nhập'
+        // this.notice = 'Có lỗi xảy ra ' + err.toString()
       }
     }
   }

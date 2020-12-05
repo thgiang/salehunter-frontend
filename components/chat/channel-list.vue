@@ -1,7 +1,7 @@
 <template>
   <div class="channels">
     <div
-      v-for="channel in $store.state.chat.channelList"
+      v-for="channel in $store.state.chat.channels"
       :key="channel.id"
       class="channel py-2"
       :class="{'selected': channel.id === 2}"
@@ -23,12 +23,13 @@
 </template>
 
 <script>
-import NameToAvatar from '../name-to-avatar'
+import NameToAvatar from '../name-to-avatar.vue'
+
 export default {
   name: 'ChannelList',
   components: { NameToAvatar },
   mounted () {
-    this.$store.dispatch('chat/getChannelList')
+    this.$store.dispatch('chat/getChannels')
   }
 
 }

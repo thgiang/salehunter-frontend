@@ -2,7 +2,7 @@
   <div>
     <Header />
     <Nuxt class="main-body" />
-    <div id="fb-root"></div>
+    <div id="fb-root" />
   </div>
 </template>
 

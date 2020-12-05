@@ -14,7 +14,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <h3 class="mt-0 pt-0 pb-2">
-                    Danh sách Fanpage đã kết nốih
+                    Danh sách Fanpage đã kết nối
                   </h3>
                 </div>
                 <div v-for="(page) in pages" :key="page.fbPageId" class="col-md-4 mb-2">
@@ -55,11 +55,8 @@
 </template>
 
 <script>
-
 import Empty from '@/components/shared/empty'
 export default {
-
-  auth: false,
   components: {
     Empty
 
@@ -67,20 +64,22 @@ export default {
   data () {
     return {
       pages: [],
-      isLoading: false
+      isLoading: true
     }
   },
 
   mounted () {
     this.getPages()
   },
-
   methods: {
     async getPages () {
-      const response = await this.$axios.get('pages')
-      if (response && response.data.success) {
-        this.pages = response.data.data
+      this.pages = this.$store.state.chat.pages
+      if (this.pages.length === 0) {
+        await this.$store.dispatch('chat/getPages')
+        this.pages = this.$store.state.chat.pages
       }
+
+      this.isLoading = false
     },
     login () {
       window.FB.login(async (response) => {
@@ -88,24 +87,19 @@ export default {
           const accessToken = window.FB.getAuthResponse().accessToken
 
           this.isLoading = true
+
           const response = await this.$axios.get('pages/add', {
             params: {
               access_token: accessToken
             }
           })
-
           if (response && response.data.success) {
             this.pages = response.data.data
           }
 
           this.isLoading = false
-
-          // window.FB.api('/me', (response) => {
-          //   console.log('Successful link for: ' + response.name)
-          // })
         } else {
-          alert('User cancelled link or did not fully authorize.')
-          console.log('User cancelled link or did not fully authorize.')
+          alert('Bạn đã hủy thao tác liên kết hoặc quá trình liên kết chưa thành công. Vui lòng thực hiện lại và cho phép ứng dụng tất cả các quyền được yêu cầu.')
         }
       }, { scope: 'public_profile,email,pages_show_list,pages_messaging' })
     }

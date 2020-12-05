@@ -1,7 +1,7 @@
 <template>
   <div class="header px-md-2 pl-3 my-auto">
     <b-navbar toggleable="lg" type="light" variant="white" class="p-0">
-      <b-navbar-brand href="#">
+      <b-navbar-brand to="/chat">
         <Logo />
       </b-navbar-brand>
 
