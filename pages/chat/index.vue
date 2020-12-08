@@ -1,7 +1,12 @@
 <template>
   <div class="chat">
-    <div class="chat__left p-2 pl-3">
-      <channel-list />
+    <div class="chat__left d-flex">
+      <div style="flex: 0 0 60px; border-right: 1px solid var(--border-gray)">
+        <fanpage-list />
+      </div>
+      <div style="flex: auto">
+        <channel-list />
+      </div>
     </div>
     <div class="chat__right">
       <channel-info class="chat__channel-info" />
@@ -31,11 +36,7 @@ export default {
   overflow: hidden;
   background: #FFF;
   display: flex;
-  .chat__left:hover {
-    overflow-y: auto;
-  }
   .chat__left {
-    overflow: hidden;
     flex: 0 1 25%;
     max-width: var(--sidebar-max-width);
     min-width: var(--sidebar-min-width);
@@ -59,7 +60,7 @@ export default {
       }
       .chat__action {
         height: calc(100vh - var(--header-height) - var(--header-height));
-        overflow-y: auto;
+        overflow: hidden;
         flex: 0 1 25%;
         max-width: var(--sidebar-max-width);
         min-width: var(--sidebar-min-width);

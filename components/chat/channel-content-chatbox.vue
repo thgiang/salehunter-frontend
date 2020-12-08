@@ -44,6 +44,7 @@ export default {
     background: var(--background-gray);
     border: none;
     min-height: 30px;
+    width: calc(100% - 108px); /* 108px vi co 3 cai nut) */
     user-select: text;
     white-space: pre-wrap;
     overflow-wrap: break-word;

@@ -101,7 +101,8 @@ export default {
         } else {
           alert('Bạn đã hủy thao tác liên kết hoặc quá trình liên kết chưa thành công. Vui lòng thực hiện lại và cho phép ứng dụng tất cả các quyền được yêu cầu.')
         }
-      }, { scope: 'public_profile,email,pages_show_list,pages_messaging' })
+      }, { scope: 'public_profile,email,pages_show_list,pages_manage_posts,pages_messaging,pages_manage_metadata,pages_manage_engagement' })
+      /*, pages_manage_metadata,pages_manage_engagement,pages_read_engagement,pages_read_user_content */
     }
   }
 }

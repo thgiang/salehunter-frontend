@@ -1,89 +1,91 @@
 <template>
   <div class="channel-content">
-    <div class="content__conversation px-2">
-      <div v-for="i in 5" :key="i">
-        <div class="conversation-time">
-          T7 15:04
-        </div>
-        <div class="conversation conversation-left">
-          <img
-            class="conversation-avatar"
-            src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/cp0/p60x60/13903262_284034591973523_6079309715779757119_n.jpg?_nc_cat=101&ccb=2&_nc_sid=7206a8&_nc_ohc=LwVp-pm7vdUAX_mmBjy&_nc_ht=scontent.fhan2-1.fna&tp=27&oh=cea212cefa4b643d0996bdbef2f8d65f&oe=5FCED0F9"
-          >
-          <div class="lines">
-            <div class="line-bounder__line">
-              :)) thế anh dùng gì
-            </div>
-            <div class="line-bounder__line">
-              À :))
-            </div>
-            <div class="line-bounder__line">
-              Em diễn tả sai
-            </div>
-            <div class="line-bounder__line">
-              Chứ vẫn hiểu đúng
+    <div class="content__conversation">
+      <perfect-scrollbar>
+        <div v-for="i in 5" :key="i" class="pl-3 px-3">
+          <div class="conversation-time">
+            T7 15:04
+          </div>
+          <div class="conversation conversation-left">
+            <img
+              class="conversation-avatar"
+              src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/cp0/p60x60/13903262_284034591973523_6079309715779757119_n.jpg?_nc_cat=101&ccb=2&_nc_sid=7206a8&_nc_ohc=LwVp-pm7vdUAX_mmBjy&_nc_ht=scontent.fhan2-1.fna&tp=27&oh=cea212cefa4b643d0996bdbef2f8d65f&oe=5FCED0F9"
+            >
+            <div class="lines">
+              <div class="line-bounder__line">
+                :)) thế anh dùng gì
+              </div>
+              <div class="line-bounder__line">
+                À :))
+              </div>
+              <div class="line-bounder__line">
+                Em diễn tả sai
+              </div>
+              <div class="line-bounder__line">
+                Chứ vẫn hiểu đúng
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="conversation conversation-right">
-          <div class="lines">
-            <div class="line-bounder__line-bounder">
-              <div class="line-bounder__line">
-                :)) thế anh dùng gì
+          <div class="conversation conversation-right">
+            <div class="lines">
+              <div class="line-bounder__line-bounder">
+                <div class="line-bounder__line">
+                  :)) thế anh dùng gì
+                </div>
+                <i class="fa fa-check-circle line__status--success" />
               </div>
-              <i class="fa fa-check-circle line__status--success" />
-            </div>
-            <div class="line-bounder__line-bounder">
-              <div class="line-bounder__line">
-                :)) thế anh dùng gì
+              <div class="line-bounder__line-bounder">
+                <div class="line-bounder__line">
+                  :)) thế anh dùng gì
+                </div>
+                <i class="fa fa-check-circle line__status--success" />
               </div>
-              <i class="fa fa-check-circle line__status--success" />
             </div>
           </div>
-        </div>
 
-        <div class="conversation conversation-left">
-          <img
-            class="conversation-avatar"
-            src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/cp0/p60x60/13903262_284034591973523_6079309715779757119_n.jpg?_nc_cat=101&ccb=2&_nc_sid=7206a8&_nc_ohc=LwVp-pm7vdUAX_mmBjy&_nc_ht=scontent.fhan2-1.fna&tp=27&oh=cea212cefa4b643d0996bdbef2f8d65f&oe=5FCED0F9"
-          >
-          <div class="lines">
-            <div class="line-bounder__line">
-              Ok anh
+          <div class="conversation conversation-left">
+            <img
+              class="conversation-avatar"
+              src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/cp0/p60x60/13903262_284034591973523_6079309715779757119_n.jpg?_nc_cat=101&ccb=2&_nc_sid=7206a8&_nc_ohc=LwVp-pm7vdUAX_mmBjy&_nc_ht=scontent.fhan2-1.fna&tp=27&oh=cea212cefa4b643d0996bdbef2f8d65f&oe=5FCED0F9"
+            >
+            <div class="lines">
+              <div class="line-bounder__line">
+                Ok anh
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="conversation conversation-right">
-          <div class="lines">
-            <div class="line-bounder__line-bounder">
-              <div class="line-bounder__line">
-                :)) thế anh dùng gì
+          <div class="conversation conversation-right">
+            <div class="lines">
+              <div class="line-bounder__line-bounder">
+                <div class="line-bounder__line">
+                  :)) thế anh dùng gì
+                </div>
+                <i class="fa fa-check-circle line__status--success" />
               </div>
-              <i class="fa fa-check-circle line__status--success" />
-            </div>
-            <div class="line-bounder__line-bounder">
-              <div class="line-bounder__line">
-                :)) thế anh dùng gì
+              <div class="line-bounder__line-bounder">
+                <div class="line-bounder__line">
+                  :)) thế anh dùng gì
+                </div>
+                <i class="fa fa-check-circle line__status--success" />
               </div>
-              <i class="fa fa-check-circle line__status--success" />
-            </div>
-            <div class="line-bounder__line-bounder">
-              <div class="line-bounder__line">
-                :)) thế anh dùng gì
+              <div class="line-bounder__line-bounder">
+                <div class="line-bounder__line">
+                  :)) thế anh dùng gì
+                </div>
+                <i class="fa fa-check-circle line__status--success" />
               </div>
-              <i class="fa fa-check-circle line__status--success" />
-            </div>
-            <div class="line-bounder__line-bounder">
-              <div class="line-bounder__line">
-                :)) thế anh dùng gì
+              <div class="line-bounder__line-bounder">
+                <div class="line-bounder__line">
+                  :)) thế anh dùng gì
+                </div>
+                <i class="far fa-circle line__status--sending" />
               </div>
-              <i class="far fa-circle line__status--sending" />
             </div>
           </div>
         </div>
-      </div>
+      </perfect-scrollbar>
     </div>
     <div class="content__chatbox px-2">
       <channel-content-chatbox />
@@ -102,16 +104,17 @@ export default {
 
 <style scoped lang="scss">
   .channel-content {
-    height: 100%;
+    height: calc(100vh - var(--header-height) - var(--header-height));
     display: flex;
     flex-direction: column;
   }
 
   .content__conversation {
-    height: calc(100vh - 200px);
-    flex-grow: 1;
-    overflow-y: auto;
-
+    flex: 1;
+    overflow: hidden;
+    .ps {
+      height: 100%
+    }
     .conversation-time {
       color: var(--text-gray);
       text-align: center;
