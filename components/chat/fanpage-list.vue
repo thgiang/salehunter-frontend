@@ -2,7 +2,13 @@
   <div>
     <div class="fanpage-list d-flex flex-column">
       <perfect-scrollbar>
-        <div v-for="page in pages" :key="page.id" class="fanpage mx-auto cursor-pointer pl-1 pr-3">
+        <div
+          v-for="page in pages"
+          :key="page.id"
+          class="fanpage cursor-pointer mx-auto py-2"
+          :class="{'active': $store.state.chat.currentPage._id === page._id}"
+          @click="selectPage(page)"
+        >
           <div class="fanpage-avatar-bounder">
             <img class="fanpage-avatar" :src="'http://graph.facebook.com/'+page.fbPageId+'/picture?type=square'">
           </div>
@@ -35,6 +41,10 @@ export default {
     this.getPages()
   },
   methods: {
+    selectPage (page) {
+      this.$store.commit('chat/setCurrentPage', page)
+      // this.$store.dispatch('chat/getChannels')
+    },
     async getPages () {
       if (this.$store.state.chat.pages.length === 0) {
         await this.$store.dispatch('chat/getPages')
@@ -52,11 +62,13 @@ export default {
   height: calc(100vh - var(--header-height) - 40px);
   overflow: hidden;
 }
+
 .fanpages {
   flex: auto;
   display: flex;
   flex-direction: column;
 }
+
 .fanpages-setting {
   border-top: 1px solid var(--border-gray);
   display: block;
@@ -67,21 +79,24 @@ export default {
 
 .fanpage {
   display: block;
-  margin: 5px 0;
   position: relative;
+  width: 50px;
 }
+
+.fanpage.active .fanpage-avatar, .fanpage:hover .fanpage-avatar {
+  border: 2px solid var(--danger);
+}
+
 .fanpage-avatar {
-  width: 40px;
   height: 40px;
-}
-.fanpage-avatar {
   width: 40px;
   border-radius: 50%;
 }
+
 .new-message-count {
   position: absolute;
-  right: 10px;
-  top: 0;
+  right: 5px;
+  top: 3px;
   width: 20px;
   height: 20px;
   font-size: 12px;

@@ -7,7 +7,7 @@
         >
       </div>
       <div class="channel-info__name">
-        <strong class="d-block">Nguyễn Trung</strong>
+        <strong class="d-block">{{ currentChannelName }}</strong>
         <small class="text-gray">Đang hoạt động trên Messenger</small>
       </div>
     </div>
@@ -37,7 +37,17 @@
 
 <script>
 export default {
-  name: 'ChannelInfo'
+  name: 'ChannelInfo',
+  computed: {
+    currentChannelName () {
+      return this.$store.state.chat.currentChannel.name
+    }
+  },
+  watch: {
+    currentChannelName () {
+      this.$forceUpdate()
+    }
+  }
 }
 </script>
 

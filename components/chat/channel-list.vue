@@ -5,7 +5,8 @@
         v-for="channel in $store.state.chat.channels"
         :key="channel.id"
         class="channel py-2 mx-1 px-2"
-        :class="{'selected': channel.id === 2}"
+        :class="{'selected': channel.id === $store.state.chat.currentChannel.id}"
+        @click="selectChannel(channel)"
       >
         <div class="channel__avatar pr-2">
           <!--<img :src="channel.avatar">-->
@@ -30,8 +31,23 @@ import NameToAvatar from '../name-to-avatar.vue'
 export default {
   name: 'ChannelList',
   components: { NameToAvatar },
+  computed: {
+    currentPage () {
+      return this.$store.state.chat.currentPage
+    }
+  },
+  watch: {
+    currentPage () {
+      this.$store.dispatch('chat/getChannels')
+    }
+  },
   mounted () {
     this.$store.dispatch('chat/getChannels')
+  },
+  methods: {
+    selectChannel (channel) {
+      this.$store.commit('chat/setCurrentChannel', channel)
+    }
   }
 
 }
