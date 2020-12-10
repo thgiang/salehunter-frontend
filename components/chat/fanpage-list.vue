@@ -42,8 +42,7 @@ export default {
   },
   methods: {
     selectPage (page) {
-      this.$store.commit('chat/setCurrentPage', page)
-      // this.$store.dispatch('chat/getChannels')
+      this.$store.dispatch('chat/changeCurrentPage', page)
     },
     async getPages () {
       if (this.$store.state.chat.pages.length === 0) {

@@ -74,7 +74,7 @@ export default {
       const that = this
       try {
         await this.$auth.loginWith('local', { data: { email: this.email, password: this.password } })
-        this.router.push('/')
+        // this.router.push('/')
       } catch (err) {
         that.$refs.login.textContent = 'Đăng nhập'
         that.notice = 'Vui lòng kiểm tra lại thông tin đăng nhập'

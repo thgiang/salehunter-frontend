@@ -1,9 +1,9 @@
 export default {
   buildDir: 'C:\\xampp\\htdocs\\salehunter.net',
   env: {
-    FB_APP_ID: process.env.FB_APP_ID || '374867146889272',
-    FB_SECRET: process.env.FB_SECRET || '67d27515cb95019d99f4a30ce0ccdccf',
-    FB_VERSION: process.env.FB_VERSION || 'v8.0',
+    FB_APP_ID: process.env.FB_APP_ID || '388970152181793',
+    FB_SECRET: process.env.FB_SECRET || '794ad4423ee211c8c43709d4d8e575c0',
+    FB_VERSION: process.env.FB_VERSION || 'v9.0',
     BASE_URL: process.env.BASE_URL || 'https://api.salehunter.net'
   },
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)

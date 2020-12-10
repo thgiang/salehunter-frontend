@@ -7,8 +7,8 @@
         >
       </div>
       <div class="channel-info__name">
-        <strong class="d-block">{{ currentChannelName }}</strong>
-        <small class="text-gray">Đang hoạt động trên Messenger</small>
+        <strong class="d-block">{{ (currentChannel.fbFrom) ? currentChannel.fbFrom.name : '' }}</strong>
+        <small class="text-gray">Tin nhắn cuối {{ moment(currentChannel.updatedAt).fromNow() }}</small>
       </div>
     </div>
 
@@ -36,16 +36,25 @@
 </template>
 
 <script>
+import moment from 'moment'
 export default {
   name: 'ChannelInfo',
+  data () {
+    return {
+      moment
+    }
+  },
   computed: {
-    currentChannelName () {
-      return this.$store.state.chat.currentChannel.name
+    currentChannel () {
+      return this.$store.state.chat.currentChannel
     }
   },
   watch: {
-    currentChannelName () {
-      this.$forceUpdate()
+    currentChannel: {
+      immediate: true,
+      handler () {
+        this.$forceUpdate()
+      }
     }
   }
 }

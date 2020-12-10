@@ -32,22 +32,30 @@ export const mutations = {
 }
 
 export const actions = {
-  getChannels (context) {
-    const channels = []
-    for (let i = 0; i < 20; i++) {
-      channels.push({ id: i, name: context.state.currentPage.fbPageName + ' ' + i, fbFrom: { name: context.state.currentPage.fbPageName + ' ' + i }, last_message: 'Tin nhắn cuối', last_message_time: '22:08', avatar: 'https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-1/cp0/p60x60/121145435_2692479717635717_1162425011590618119_n.jpg?_nc_cat=108&ccb=2&_nc_sid=7206a8&_nc_ohc=GMDiKOByW2YAX-AvuwN&_nc_ht=scontent.fhan2-3.fna&tp=27&oh=9f335afbf8c1211f17162241b20681c1&oe=5FCC2616' })
+  async getChannels (context, page = 1, limit = 30) {
+    const response = await this.$axios.get('page/channels', { params: { pageId: context.state.currentPage.fbPageId, page, limit } }).catch(() => { context.commit('setPages', []) })
+    if (response && response.data.success) {
+      context.commit('setChannels', response.data.data.docs)
+      if (response.data.data.docs.length > 0) {
+        context.commit('setCurrentChannel', response.data.data.docs[0])
+      }
+    } else {
+      context.commit('setChannels', [])
     }
-    context.commit('setChannels', channels)
-    if (Object.keys(context.state.currentChannel).length === 0) {
-      context.commit('setCurrentChannel', channels[0])
+  },
+  changeCurrentPage (context, page) {
+    if (page !== context.state.currentPage) {
+      context.commit('setCurrentPage', page)
+      context.commit('setCurrentChannel', {})
+      context.dispatch('getChannels').then(() => {})
     }
   },
   async getPages (context) {
-    const response = await this.$axios.get('pages')
+    const response = await this.$axios.get('pages').catch(() => { context.commit('setPages', []) })
     if (response && response.data.success) {
       context.commit('setPages', response.data.data)
-      if (Object.keys(context.state.currentPage).length === 0) {
-        context.commit('setCurrentPage', response.data.data[0])
+      if (Object.keys(context.state.currentPage).length === 0 && response.data.data.length > 0) {
+        context.dispatch('changeCurrentPage', response.data.data[0]).then(() => {})
       }
     } else {
       context.commit('setPages', [])

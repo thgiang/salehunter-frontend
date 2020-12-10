@@ -3,21 +3,20 @@
     <perfect-scrollbar>
       <div
         v-for="channel in $store.state.chat.channels"
-        :key="channel.id"
+        :key="channel._id"
         class="channel py-2 mx-1 px-2"
-        :class="{'selected': channel.id === $store.state.chat.currentChannel.id}"
+        :class="{'selected': channel._id === $store.state.chat.currentChannel._id}"
         @click="selectChannel(channel)"
       >
         <div class="channel__avatar pr-2">
-          <!--<img :src="channel.avatar">-->
-          <name-to-avatar :name="channel.name" width="40px" height="40px" font-size="1.2em" />
+          <name-to-avatar :name="channel.fbFrom.name" width="40px" height="40px" font-size="1.2em" />
         </div>
         <div class="channel__info">
           <div class="channel__name">
-            {{ channel.name }}
+            {{ channel.fbFrom.name }}
           </div>
           <div class="channel__last-message text-gray">
-            {{ channel.last_message }} · {{ channel.last_message_time }}
+            {{ (channel.lastMessage) ? channel.lastMessage.text : '' }} · {{ moment(channel.updatedAt).fromNow() }}
           </div>
         </div>
       </div>
@@ -26,23 +25,15 @@
 </template>
 
 <script>
+import moment from 'moment'
 import NameToAvatar from '../name-to-avatar.vue'
-
 export default {
   name: 'ChannelList',
   components: { NameToAvatar },
-  computed: {
-    currentPage () {
-      return this.$store.state.chat.currentPage
+  data () {
+    return {
+      moment
     }
-  },
-  watch: {
-    currentPage () {
-      this.$store.dispatch('chat/getChannels')
-    }
-  },
-  mounted () {
-    this.$store.dispatch('chat/getChannels')
   },
   methods: {
     selectChannel (channel) {
