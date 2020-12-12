@@ -4,7 +4,7 @@
       <div style="flex: 0 0 60px; border-right: 1px solid var(--border-gray)">
         <fanpage-list />
       </div>
-      <div style="flex: auto">
+      <div style="flex: auto; overflow: hidden;">
         <channel-list />
       </div>
     </div>

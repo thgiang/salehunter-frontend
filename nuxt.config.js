@@ -1,10 +1,11 @@
 export default {
   buildDir: 'C:\\xampp\\htdocs\\salehunter.net',
   env: {
-    FB_APP_ID: process.env.FB_APP_ID || '388970152181793',
-    FB_SECRET: process.env.FB_SECRET || '794ad4423ee211c8c43709d4d8e575c0',
+    FB_APP_ID: process.env.FB_APP_ID || '4078817498799196',
+    FB_SECRET: process.env.FB_SECRET || '71ad729ee39d15452ca6f25bdb4e782a',
     FB_VERSION: process.env.FB_VERSION || 'v9.0',
-    BASE_URL: process.env.BASE_URL || 'https://api.salehunter.net'
+    BASE_URL: process.env.BASE_URL || 'https://api.salehunter.net',
+    SOCKET_URL: process.env.SOCKET_URL || 'http://localhost:3000'
   },
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
@@ -48,7 +49,8 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     '@/plugins/facebook-sdk',
-    '@/plugins/nice-scroller'
+    '@/plugins/nice-scroller',
+    { src: '@/plugins/socket.js', mode: 'client' }
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

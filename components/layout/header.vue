@@ -37,6 +37,9 @@
             </b-dropdown-item>
           </b-nav-item-dropdown>
 -->
+          <div @click="sendMessage">
+            Guii
+          </div>
           <b-nav-item-dropdown v-if="loggedIn" right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
@@ -72,7 +75,15 @@ export default {
       this.$forceUpdate()
     }
   },
+  mounted () {
+    this.$socket.$subscribe('chat message', (payload) => {
+      console.log(payload)
+    })
+  },
   methods: {
+    sendMessage () {
+      this.$socket.client.emit('chat message', 'Gianggg')
+    },
     logout () {
       if (this.$auth.loggedIn) {
         this.$auth.logout().then((r) => {

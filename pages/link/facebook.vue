@@ -20,6 +20,9 @@
                 <div v-for="(page) in pages" :key="page.fbPageId" class="col-md-4 mb-2">
                   <div class="fanpage-card card">
                     <div class="card-body p-2">
+                      <div class="fanpage-actions">
+                        <i class="far fa-trash-alt cursor-pointer" @click="deletePage(page.fbPageId)" />
+                      </div>
                       <div class="d-flex">
                         <div class="fanpage-card__avatar mr-2">
                           <img :src="'https://graph.facebook.com/'+page.fbPageId+'/picture'">
@@ -72,6 +75,18 @@ export default {
     this.getPages()
   },
   methods: {
+    async deletePage (fbPageId) {
+      const response = await this.$axios.get('/page/delete', {
+        params: {
+          fbPageId
+        }
+      }).catch((e) => {
+        console.log(e)
+      })
+      if (response && response.data.success) {
+        this.getPages()
+      }
+    },
     async getPages () {
       this.pages = this.$store.state.chat.pages
       if (this.pages.length === 0) {
@@ -109,6 +124,18 @@ export default {
 </script>
 
 <style lang="scss">
+.fanpage-actions {
+  position: absolute;
+  right: 6px;
+  top: 3px;position: absolute;
+  right: 6px;
+  top: 3px;
+  color: #999;
+  :hover {
+    color: #444
+  }
+}
+
 .fanpage-card__info {
   overflow: hidden;
   .fanpage-card__name {
