@@ -18,7 +18,7 @@
         </div>
         <div class="channel__last-message text-gray">
           <div class="channel__last-message--text">
-            {{ (channel.lastMessage) ? channel.lastMessage.text : '' }} à thế à à à à á à thế à ừ đây là một bài hát vui dài dài
+            {{ (channel.lastMessage) ? channel.lastMessage.text : '' }}
           </div>
           <div class="channel__last-message--time">
             · {{ moment(channel.updatedAt).fromNow() }}
